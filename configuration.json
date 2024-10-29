@@ -12,7 +12,7 @@
       "changes": "Тестовый билд",
       "build": "dev",
       "required": false,
-      "disabled": false
+      "disabled": true
     }
   ]
 }
