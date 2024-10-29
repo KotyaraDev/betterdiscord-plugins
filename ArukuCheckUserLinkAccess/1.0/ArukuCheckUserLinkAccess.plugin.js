@@ -1,7 +1,7 @@
 /**
  * @description Плагин отображает в профиле человеку разрешены ли ему ссылки, т.е находится ли его ID в списке на ARUKU MODERATOR -> разрешены-ссылки.
  * @name ArukuCheckUserLinkAccess
- * @version 1.0
+ * @version 0.1
  * @author винчик?
  * @invite aruku
  * @source https://github.com/KotyaraDev/betterdiscord-plugins
@@ -230,8 +230,6 @@ module.exports = (_ => {
 			
 								if(tempApiVersion == "0.0" || tempApiVersion == mainConfig['version'] || tempApiDisabled) return BdApi.showToast(`${mainConfig['name']}:\nНет новых обновлений.`, { type: "info" });
 							}
-
-							console.log(`${mainConfig['api']['url']}/${mainConfig['name']}/${tempApiVersion}/${mainConfig['name']}.plugin.js`);
 
 							if (tempApiRequired) {
 								try {
