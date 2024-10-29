@@ -212,8 +212,8 @@ module.exports = (_ => {
 								tempApiVersion, tempApiBuild, tempApiChanges,
 								tempApiRequired, tempApiDisabled
 							] = ['0.0', 'stable', '---', false, false];
-			
-			
+
+
 							if(!pluginData || pluginData.length <= 0) return BdApi.showToast(`${mainConfig['name']}:\nНет новых обновлений.`, { type: "info" });
 							else {
 								for(let i = 0; i < pluginData.length; i++) {
@@ -230,10 +230,12 @@ module.exports = (_ => {
 			
 								if(tempApiVersion == "0.0" || tempApiVersion == mainConfig['version'] || tempApiDisabled) return BdApi.showToast(`${mainConfig['name']}:\nНет новых обновлений.`, { type: "info" });
 							}
-							
+
+							console.log(`${mainConfig['api']['url']}/${mainConfig['name']}/${tempApiVersion}/${mainConfig['name']}.plugin.js`);
+
 							if (tempApiRequired) {
 								try {
-									require('request').get(`${mainConfig['api']['url']}${mainConfig['api']['versions']}${tempApiVersion}/SelectFormForAdminRank.plugin.js`, (error, response, body) => {
+									require('request').get(`${mainConfig['api']['url']}/${mainConfig['name']}/${tempApiVersion}/${mainConfig['name']}.plugin.js`, (error, response, body) => {
 										if(error) return BdApi.showToast(error, { type: "error" });
 										if(response.statusCode == 200) {
 											require("fs").writeFileSync(require("path").join(BdApi.Plugins.folder, `${mainConfig['name']}.plugin.js`), body);
@@ -251,7 +253,7 @@ module.exports = (_ => {
 										cancelText: "Отменить",
 										onConfirm: () => {
 											try {
-												require('request').get(`${mainConfig['api']['url']}${mainConfig['api']['versions']}${tempApiVersion}/${mainConfig['name']}.plugin.js`, (error, response, body) => {
+												require('request').get(`${mainConfig['api']['url']}/${mainConfig['name']}/${tempApiVersion}/${mainConfig['name']}.plugin.js`, (error, response, body) => {
 													if(error) return BdApi.showToast(error, { type: "error" });
 													if(response.statusCode == 200) {
 														require("fs").writeFileSync(require("path").join(BdApi.Plugins.folder, `${mainConfig['name']}.plugin.js`), body);
