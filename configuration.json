@@ -1,0 +1,18 @@
+{
+  "ArukuCheckUserAccessForLinks": [
+    {
+      "version": "1.0",
+      "changes": "Релиз",
+      "build": "stable",
+      "required": false,
+      "disabled": false
+    },
+    {
+      "version": "1.1",
+      "changes": "Тестовый билд",
+      "build": "dev",
+      "required": false,
+      "disabled": false
+    }
+  ]
+}
